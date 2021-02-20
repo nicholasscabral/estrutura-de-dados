@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class fibonacciRecursivo {
+public class fibonacci {
     public static int fibonacci(int n) {
         if (n == 1) return 0;
         else if (n == 2) return 1;

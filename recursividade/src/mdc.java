@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public class mdc {
+public class mdc {
+    //Algoritimo de Euclides recursivo
+    
 }

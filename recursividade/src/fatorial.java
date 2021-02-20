@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class fatorialRecursivo {
+public class fatorial {
     // metodo recursivo
     public static int fatorial(int n) {
         return (n == 1 || n == 0) ? 1 : n * fatorial(n-1);

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class combinacao {
+public class Combinacao {
     // Metodo recursivo
     public static int comb(int n, int k) {
         if (k == 1) return n;

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class potenciaDe2 {
+public class PotenciaDe2 {
 
     public static double potencia(int n) {
         if (n == 0) {

@@ -39,11 +39,16 @@ public class ListaEstatica {
     }
 
     public boolean pesquisar(int valor) {
-
+        for (int i = 0; i < contador; i++) {
+            if (v[i] == valor) return true;
+        }
+        return false;
     }
 
-    public int pesquisar(int posicao) {
-
+    public int indice(int posicao) throws Exception {
+        if (posicao <= contador) return v[posicao];
+        else
+            throw new Exception("INVALID POSITION");
     }
 
     public void remover(int posicao) {

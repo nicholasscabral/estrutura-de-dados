@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ListaEstatica lista = new ListaEstatica();
 
         // adicionando valores de teste
@@ -19,5 +19,8 @@ public class Main {
 
         lista.remover(2); // removendo numero 4, na posição 2
         lista.exibir(); // 7 2 8 3 5 1 9
+
+        System.out.println(lista.pesquisar(4)); // false
+        System.out.println(lista.indice(2)); // 8
     }
 }

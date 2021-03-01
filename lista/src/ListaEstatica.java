@@ -18,10 +18,12 @@ public class ListaEstatica {
         }
         else {
             // criar novo vetor com 1.5size ou tratar erro
+            double newSize = this.tamanho() * 1.5;
+            ListaEstatica novaLista = new ListaEstatica((int) newSize);
         }
     }
 
-    public void adicionar(int posicao, int valor) {
+    public void adicionar(int posicao, int valor) throws Exception {
         if (posicao <= contador) {
             for (int i = contador; i > posicao; i--) {
                 v[i] = v[i - 1];
@@ -31,6 +33,7 @@ public class ListaEstatica {
         }
         else {
             // tratar erro de posição > contador
+            throw new Exception("POSITION GREATER SEM LIST SIZE");
         }
     }
 
@@ -51,7 +54,7 @@ public class ListaEstatica {
             throw new Exception("INVALID POSITION");
     }
 
-    public void remover(int posicao) {
+    public void remover(int posicao) throws Exception {
         if (posicao < contador) {
             for (int i = posicao; i < contador - 1; i++) {
                 v[i] = v[i + 1];
@@ -61,6 +64,7 @@ public class ListaEstatica {
         }
         else {
             // tratar erro, posicao > = contador
+            throw new Exception("POSITION GREATER/EQUAL THAN LIST SIZE");
         }
     }
 

@@ -11,7 +11,7 @@ public class ListaEstatica {
         v = new int[n];
     }
 
-    public void adicionar(int valor) {
+    public void adicionar(int valor) throws Exception {
         if (contador != v.length) {
             v[contador] = valor;
             contador++;
@@ -19,7 +19,15 @@ public class ListaEstatica {
         else {
             // criar novo vetor com 1.5size ou tratar erro
             double newSize = this.tamanho() * 1.5;
-            ListaEstatica novaLista = new ListaEstatica((int) newSize);
+            ListaEstatica novaLista = new ListaEstatica(20);
+            novaLista.contador = this.contador;
+            for (int i = 0; i < contador; i++) {
+                novaLista.adicionar(v[i]);
+            }
+            for (int i = 0; i < contador; i++) {
+                this.remover(i);
+            }
+            //System.out.println(novaLista.tamanho());
         }
     }
 
@@ -48,8 +56,15 @@ public class ListaEstatica {
         return false;
     }
 
-    public int indice(int posicao) throws Exception {
-        if (posicao <= contador) return v[posicao];
+    public int pesquisarIndice(int valor) {
+        for (int i = 0; i < contador; i++) {
+            if (v[i] == valor) return i;
+        }
+        return -1;
+    }
+
+    public int pesquisarElemento(int posicao) throws Exception {
+        if (posicao < contador) return v[posicao];
         else
             throw new Exception("INVALID POSITION");
     }

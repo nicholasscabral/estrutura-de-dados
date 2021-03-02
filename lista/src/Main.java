@@ -21,6 +21,8 @@ public class Main {
         lista.exibir(); // 7 2 8 3 5 1 9
 
         System.out.println(lista.pesquisar(4)); // false
-        System.out.println(lista.indice(2)); // 8
+        System.out.println(lista.pesquisarElemento(2)); // 8
+        System.out.println(lista.pesquisarIndice(8));
+
     }
 }

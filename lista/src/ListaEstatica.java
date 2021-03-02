@@ -1,17 +1,17 @@
 public class ListaEstatica {
-    private int v[];
+    private Object v[];
     private int contador;
 
     public ListaEstatica() {
-        v = new int[10];
+        v = new Object[10];
         contador = 0;
     }
 
-    public ListaEstatica(int n) {
-        v = new int[n];
+    public ListaEstatica(Object n) {
+        v = new Object[n];
     }
 
-    public void adicionar(int valor) throws Exception {
+    public void adicionar(Object valor) throws Exception {
         if (contador != v.length) {
             v[contador] = valor;
             contador++;
@@ -49,24 +49,24 @@ public class ListaEstatica {
         return contador;
     }
 
-    public boolean pesquisar(int valor) {
+    public boolean pesquisar(Object valor) {
         for (int i = 0; i < contador; i++) {
-            if (v[i] == valor) return true;
+            if (v[i].equals(valor)) return true;
         }
         return false;
     }
 
-    public int pesquisarIndice(int valor) {
+    public int pesquisarIndice(Object valor) {
         for (int i = 0; i < contador; i++) {
-            if (v[i] == valor) return i;
+            if (v[i].equals(valor)) return i;
         }
         return -1;
     }
 
-    public int pesquisarElemento(int posicao) throws Exception {
+    public Object pesquisarElemento(int posicao) {
         if (posicao < contador) return v[posicao];
         else
-            throw new Exception("INVALID POSITION");
+            return null;
     }
 
     public void remover(int posicao) throws Exception {

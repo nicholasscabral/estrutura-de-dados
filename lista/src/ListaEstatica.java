@@ -7,11 +7,11 @@ public class ListaEstatica {
         contador = 0;
     }
 
-    public ListaEstatica(Object n) {
+    public ListaEstatica(int n) {
         v = new Object[n];
     }
 
-    public void adicionar(Object valor) throws Exception {
+    public void adicionar(Object valor) throws Exception { // add
         if (contador != v.length) {
             v[contador] = valor;
             contador++;
@@ -31,7 +31,7 @@ public class ListaEstatica {
         }
     }
 
-    public void adicionar(int posicao, int valor) throws Exception {
+    public void adicionar(int posicao, Object valor) throws Exception { // add
         if (posicao <= contador) {
             for (int i = contador; i > posicao; i--) {
                 v[i] = v[i - 1];
@@ -45,31 +45,31 @@ public class ListaEstatica {
         }
     }
 
-    public int tamanho() {
+    public int tamanho() { // size
         return contador;
     }
 
-    public boolean pesquisar(Object valor) {
+    public boolean pesquisar(Object valor) { // contains
         for (int i = 0; i < contador; i++) {
             if (v[i].equals(valor)) return true;
         }
         return false;
     }
 
-    public int pesquisarIndice(Object valor) {
+    public int pesquisarIndice(Object valor) { // indexOf
         for (int i = 0; i < contador; i++) {
             if (v[i].equals(valor)) return i;
         }
         return -1;
     }
 
-    public Object pesquisarElemento(int posicao) {
+    public Object pesquisarElemento(int posicao) { // get
         if (posicao < contador) return v[posicao];
         else
             return null;
     }
 
-    public void remover(int posicao) throws Exception {
+    public void remover(int posicao) throws Exception { // remove
         if (posicao < contador) {
             for (int i = posicao; i < contador - 1; i++) {
                 v[i] = v[i + 1];

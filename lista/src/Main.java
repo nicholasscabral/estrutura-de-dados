@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) throws Exception {
-        ListaEstatica lista = new ListaEstatica();
+        //ListaEstatica lista = new ListaEstatica();
+        ListaDinamica lista = new ListaDinamica();
 
         // adicionando valores de teste
         lista.adicionar(7);
@@ -22,7 +23,7 @@ public class Main {
 
         System.out.println(lista.pesquisar(4)); // false
         System.out.println(lista.pesquisarElemento(2)); // 8
-        System.out.println(lista.pesquisarIndice(8));
+        System.out.println(lista.pesquisarIndice(8)); // 2
 
     }
 }

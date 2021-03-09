@@ -21,6 +21,12 @@ public class Main {
         lista.remover(2); // removendo numero 4, na posição 2
         lista.exibir(); // 7 2 8 3 5 1 9
 
+        lista.remover(0); // removendo numero 7 da primeira posição
+        lista.exibir(); // 2 8 3 5 1 9
+
+        lista.remover(5); // removendo numero 9 da ultima posição
+        lista.exibir(); // 2 8 3 5 1
+
         System.out.println(lista.pesquisar(4)); // false
         System.out.println(lista.pesquisarElemento(2)); // 8
         System.out.println(lista.pesquisarIndice(8)); // 2

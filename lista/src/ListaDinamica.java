@@ -31,7 +31,9 @@ public class ListaDinamica {
             ultimo = novo;
         } else if (posicao == 0) { // posição inicial
             novo.proximo = primeiro;
+            //primeiro.anterior = novo;
             primeiro = novo;
+            //primeiro.anterior = ultimo;
         } else if (posicao == tamanho()) { // posição final
             ultimo.proximo = novo;
             ultimo = novo;
@@ -44,6 +46,8 @@ public class ListaDinamica {
 
             novo.proximo = aux.proximo;
             aux.proximo = novo;
+            //aux.proximo.anterior = novo;
+            //novo.anterior = aux;
         }
 
         contador++;
@@ -71,12 +75,32 @@ public class ListaDinamica {
     }
 
     public boolean pesquisar(int valor) { // contains
+        No aux = primeiro;
+
+        for (int i = 0; i < contador; i++) {
+            if (aux.dado == valor) {
+                return true;
+            }
+            else {
+                aux = aux.proximo;
+            }
+        }
         return false;
     }
 
     public int pesquisarIndice(int valor) { // indexOf
-        return 0;
+        No aux = primeiro;
 
+        for (int i = 0; i < contador; i++) {
+            if (aux.dado == valor) {
+                return i;
+            }
+            else {
+                aux = aux.proximo;
+            }
+        }
+
+        return -1;
     }
 
     public int pesquisarElemento(int posicao) { // get

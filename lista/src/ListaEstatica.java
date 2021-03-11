@@ -18,16 +18,13 @@ public class ListaEstatica {
         }
         else {
             // criar novo vetor com 1.5size ou tratar erro
-            double newSize = this.tamanho() * 1.5;
-            ListaEstatica novaLista = new ListaEstatica(20);
-            novaLista.contador = this.contador;
-            for (int i = 0; i < contador; i++) {
-                novaLista.adicionar(v[i]);
+            Object[] aux = new Object[(int) (v.length * 1.5)];
+
+            for (int i = 0; i < v.length; i++) {
+                aux[i] = v[i];
             }
-            for (int i = 0; i < contador; i++) {
-                this.remover(i);
-            }
-            //System.out.println(novaLista.tamanho());
+
+            v = aux;
         }
     }
 
@@ -41,7 +38,7 @@ public class ListaEstatica {
         }
         else {
             // tratar erro de posição > contador
-            throw new Exception("POSITION GREATER SEM LIST SIZE");
+            throw new Exception("POSITION GREATER THAN LIST SIZE");
         }
     }
 

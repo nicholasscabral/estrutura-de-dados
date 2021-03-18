@@ -19,7 +19,6 @@ public class ListaDinamica { // lista simplesmente encadeada nao ordenada
         else {
             ultimo.proximo = novo;
             ultimo = novo;
-            // ultimo.proximo = primeiro; circular
         }
         contador++;
     }
@@ -48,7 +47,7 @@ public class ListaDinamica { // lista simplesmente encadeada nao ordenada
     public boolean contains(String nome) {
         No aux = primeiro;
 
-        for (int i = 0; i < contador; i++) {
+        while (aux != null ){
             if (aux.dado.equals(nome)) {
                 return true;
             }
@@ -86,7 +85,6 @@ public class ListaDinamica { // lista simplesmente encadeada nao ordenada
     }
 
     public int size() {
-
         return contador;
     }
 }

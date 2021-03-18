@@ -9,7 +9,7 @@ public class Compras {
         cases = input.nextInt();
         input.nextLine();   
         for (int i = 0; i < cases; i++) {
-            ListaOrdenada listaCompras = new ListaOrdenada();
+            ListaOrdenadaAlfabeto listaCompras = new ListaOrdenadaAlfabeto();
 
             String[] items = input.nextLine().split(" ");
             for (String item : items) {

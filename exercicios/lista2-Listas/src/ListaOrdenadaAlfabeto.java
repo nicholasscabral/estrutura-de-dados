@@ -1,9 +1,9 @@
-public class ListaOrdenada {
+public class ListaOrdenadaAlfabeto {
     private No primeiro;
     private No ultimo;
     private int contador;
 
-    public ListaOrdenada() {
+    public ListaOrdenadaAlfabeto() {
         this.primeiro = null;
         this.ultimo = null;
         this.contador = 0;

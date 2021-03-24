@@ -20,33 +20,38 @@ public class ListaOrdenadaCaracteres {
             novo.proximo = primeiro;
             primeiro.anterior = novo;
             primeiro = novo;
-            primeiro.anterior = ultimo; // circular
+            //primeiro.anterior = ultimo; // circular
         }
         else if (novo.dado.length() > ultimo.dado.length()) { // final da lista
             ultimo.proximo = novo;
-            novo.anterior = ultimo;
+            //novo.anterior = ultimo;
             ultimo = novo;
-            ultimo.proximo = primeiro; // circular
+           // ultimo.proximo = primeiro; // circular
         }
         else {
+            No anterior = null;
             No aux = primeiro;
 
-            while (novo.dado.length() > aux.dado.length()) {
+            while (aux != null && novo.dado.length() > aux.dado.length()) {
+                anterior = aux;
                 aux = aux.proximo;
             }
-
-            aux.anterior = novo;
+            anterior.proximo = novo;
+            novo.anterior = anterior;
             novo.proximo = aux;
+            aux.anterior = novo;
+            //System.out.println("adiconei entre " + novo.anterior.dado + " e " + novo.proximo.dado);
         }
         contador++;
     }
 
     public boolean containsChar(String nome) {
         No aux = primeiro;
-
-        while (aux != null) {
+        //System.out.println(nome + " tem " + nome.length() + " letras");
+        for (int i = 0; i < contador; i++) {
+            //System.out.println("comparando " + nome + " com " + aux.dado);
             if (nome.length() == aux.dado.length()) {
-                System.out.println(nome + " tem a mesma quantidade de letras que " + aux.dado);
+                //System.out.println(nome + " tem a mesma quantidade de letras que " + aux.dado);
                 return true;
             }
             aux = aux.proximo;
@@ -57,8 +62,8 @@ public class ListaOrdenadaCaracteres {
     public void list() {
         No aux = primeiro;
 
-        while (aux != null) {
-            if (aux.dado.equals(ultimo.dado)) {
+        for (int i = 0; i < contador; i++) {
+            if (aux == ultimo) {
                 System.out.print(aux.dado);
             }
             else {

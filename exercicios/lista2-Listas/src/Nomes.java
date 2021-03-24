@@ -11,34 +11,35 @@ public class Nomes {
         int cases = input.nextInt();
 
         for (int i = 0; i < cases; i++) {
-            System.out.println("quantidade total de listas: " + listaNomes.size());
-            //System.out.println("comecei a repetição");
+            //System.out.println("quantidade total de listas: " + listaNomes.size());
+
             String nome = input.next();
+            //System.out.println(nome);
             boolean added = false;
 
-            for (int j = 0; j < listaNomes.size(); j++) {
-                ListaOrdenadaCaracteres lista = listaNomes.searchList(j);
-                System.out.println("verificando se " + nome + " pode entrar na lista " + (j + 1));
-
+            for (int k = 0; k < listaNomes.size(); k++) {
+                ListaOrdenadaCaracteres lista = listaNomes.searchList(k);
+                //System.out.println("verificando se " + nome + " pode entrar na lista " + (k + 1));
+                //System.out.println(lista);
+                //System.out.println(lista.containsChar(nome));
                 if (!lista.containsChar(nome)) {
+                    //System.out.println("to entrando aqui");
                     added = true;
-                    System.out.println("adicionei " + nome + " na lista " + (j + 1));
+                    //System.out.println("adicionei " + nome + " na lista " + (k + 1));
                     lista.add(nome);
                     break;
                 }
             }
-            //System.out.println("adicionei ou nao o nome");
+
             if (!added) {
-                System.out.println(nome + " nao pode entrar nessa lista");
+                //System.out.println(nome + " nao pode entrar nessa lista");
                 ListaOrdenadaCaracteres novaLista = new ListaOrdenadaCaracteres();
                 listaNomes.add(novaLista);
                 novaLista.add(nome);
-                System.out.println("criei uma nova lista e adicionei " + nome);
+                //System.out.println("criei uma nova lista e adicionei " + nome);
             }
-            added = false;
-            //System.out.println("finalizei a repetição");
         }
-        System.out.println("quantidade total de listas: " + listaNomes.size());
+        //System.out.println("quantidade total de listas: " + listaNomes.size());
         listaNomes.list();
     }
 }

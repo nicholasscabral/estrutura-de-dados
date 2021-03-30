@@ -11,5 +11,5 @@
 | Estruturas | Java | JavaScript | C/C++ | Python |
 |---|---|---|---|---|
 | Lista Dinâmica | [Java](src/lista/Java/src/ListaDinamica.java) |   |   |   |
-| Lista Ordenada Alfabeticamente | [Java](lista/src/ListaOrdenadaAlfabeto.java) |   |   |   |
-| Lista Ordenada Caracteres | [Java](lista/src/ListaOrdenadaCaracteres.java) |   |   |   |
+| Lista Ordenada Alfabeticamente | [Java](src/lista/Java/src/ListaOrdenadaAlfabeto.java) |   |   |   |
+| Lista Ordenada Caracteres | [Java](src/lista/src/Java/ListaOrdenadaCaracteres.java) |   |   |   |

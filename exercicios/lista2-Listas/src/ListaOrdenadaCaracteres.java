@@ -20,13 +20,13 @@ public class ListaOrdenadaCaracteres {
             novo.proximo = primeiro;
             primeiro.anterior = novo;
             primeiro = novo;
-            //primeiro.anterior = ultimo; // circular
+            primeiro.anterior = ultimo; // circular
         }
         else if (novo.dado.length() > ultimo.dado.length()) { // final da lista
             ultimo.proximo = novo;
-            //novo.anterior = ultimo;
+            novo.anterior = ultimo;
             ultimo = novo;
-           // ultimo.proximo = primeiro; // circular
+            ultimo.proximo = primeiro; // circular
         }
         else {
             No anterior = null;
@@ -40,18 +40,14 @@ public class ListaOrdenadaCaracteres {
             novo.anterior = anterior;
             novo.proximo = aux;
             aux.anterior = novo;
-            //System.out.println("adiconei entre " + novo.anterior.dado + " e " + novo.proximo.dado);
         }
         contador++;
     }
 
     public boolean containsChar(String nome) {
         No aux = primeiro;
-        //System.out.println(nome + " tem " + nome.length() + " letras");
         for (int i = 0; i < contador; i++) {
-            //System.out.println("comparando " + nome + " com " + aux.dado);
             if (nome.length() == aux.dado.length()) {
-                //System.out.println(nome + " tem a mesma quantidade de letras que " + aux.dado);
                 return true;
             }
             aux = aux.proximo;

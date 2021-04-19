@@ -1,22 +1,23 @@
-public class FilaDinamica {
+public class FilaPrioridade {
     private No primeiro;
     private No ultimo;
     private int contador;
 
-    public FilaDinamica() {
+    public FilaPrioridade() {
         primeiro = null;
         ultimo = null;
         contador = 0;
     }
 
-    public void enqueue(Object valor) {
-        No novo = new No((String) valor);
+    public void enqueue(String valor, int prioridade) {
+        No novo = new No(valor, prioridade);
 
         if (primeiro == null) {
             primeiro = novo;
             ultimo = novo;
         } else {
             ultimo.proximo = novo;
+            novo.anterior = ultimo;
             ultimo = novo;
         }
 
@@ -25,13 +26,36 @@ public class FilaDinamica {
 
     public void dequeue()  {
         if (primeiro != null) {
-            primeiro = primeiro.proximo;
+            No aux = this.front();
+
+            if (aux.anterior != null)
+                aux.anterior.proximo = aux.proximo;
+            else
+                primeiro = primeiro.proximo;
+
+            if (aux.proximo != null)
+                aux.proximo.anterior = aux.anterior;
+            else
+                ultimo = ultimo.anterior;
+
             contador--;
         }
     }
 
-    public Object front() {
-        return primeiro.dado;
+    public No front() {
+        if (primeiro != null) {
+            for (int i = 0; i < 2; i++) {
+                No aux = primeiro;
+
+                while (aux != null) {
+                    if (aux.prioridade == i)
+                        return aux;
+
+                    aux = aux.proximo;
+                }
+            }
+        }
+        return primeiro; // return null;
     }
 
     public boolean search(Object valor) {
@@ -61,10 +85,9 @@ public class FilaDinamica {
         No aux = primeiro;
 
         while (aux != null) {
-            System.out.print(aux.dado + " ");
+            System.out.print(aux.dado + "(" + aux.prioridade + ") ");
             aux = aux.proximo;
         }
         System.out.println();
     }
-
 }

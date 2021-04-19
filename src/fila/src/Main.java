@@ -1,17 +1,16 @@
 public class Main {
     public static void main(String[] args) {
-        FilaDinamica fila = new FilaDinamica();
+        FilaPrioridade fila = new FilaPrioridade();
 
-        fila.enqueue(7);
-        fila.enqueue(2);
-        fila.enqueue(5);
-        fila.enqueue(3);
-        fila.list(); // 7 2 5 3
-        System.out.println("proximo: " + fila.front());
+        fila.enqueue("Joao", 2);
+        fila.enqueue("Pedro", 2);
+        fila.enqueue("Ricardo", 1);
+        fila.enqueue("Nicholas", 2);
+        fila.enqueue("Maria", 0);
+        fila.enqueue("Eduarda", 0);
+        fila.list();
         fila.dequeue();
-        fila.dequeue();
-        fila.list(); // 5 3
-        System.out.println("proximo: " + fila.front());
+        fila.list();
 
     }
 }

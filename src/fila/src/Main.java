@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        FilaPrioridade fila = new FilaPrioridade();
+        FilaPrioridadeDesordenada fila = new FilaPrioridadeDesordenada();
 
         fila.enqueue("Joao", 2);
         fila.enqueue("Pedro", 2);

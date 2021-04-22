@@ -1,9 +1,9 @@
-public class FilaPrioridade {
+public class FilaPrioridadeDesordenada {
     private No primeiro;
     private No ultimo;
     private int contador;
 
-    public FilaPrioridade() {
+    public FilaPrioridadeDesordenada() {
         primeiro = null;
         ultimo = null;
         contador = 0;

@@ -39,6 +39,7 @@ public class PilhaDinamica {
             if (aux.dado.equals(valor)) {
                 return true;
             }
+            aux = aux.proximo;
         }
         return false;
     }

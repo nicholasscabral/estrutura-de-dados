@@ -11,5 +11,7 @@ public class Main {
         tree.add(21);
         tree.add(19);
         tree.add(25);
+
+        tree.list();
     }
 }

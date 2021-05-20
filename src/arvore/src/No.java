@@ -1,9 +1,9 @@
 public class No {
-    public Object dado;
+    public int dado;
     public No esquerdo;
     public No direito;
 
-    public No(Object dado) {
+    public No(int dado) {
         this.dado = dado;
         this.esquerdo = null;
         this.direito = null;

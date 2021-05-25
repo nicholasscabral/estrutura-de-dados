@@ -6,14 +6,14 @@ public class ArvoreBinariaBusca {
     }
 
     public void add(int e) {
-        if (root == null)
+        if (this.empty())
             root = new No(e);
         else {
             this.add(e, root);
         }
     }
 
-    public void add(int e, No root) {
+    private void add(int e, No root) {
         if (e < root.dado) {
             if (root.esquerdo == null)
                 root.esquerdo = new No(e);
@@ -29,18 +29,38 @@ public class ArvoreBinariaBusca {
     }
 
     public void remove(int e) {
+        if (!this.empty())
+            remove(e, root, null);
+    }
 
+    private void remove(int e, No root, No pai) {
+        if (e == root.dado) {
+            if (root.esquerdo == null && root.direito == null) {
+                if (root == pai.esquerdo)
+                    pai.esquerdo = null;
+                else
+                    pai.direito = null;
+            }
+        }
+        else if (e < root.dado) {
+            if (root.esquerdo != null)
+                this.remove(e, root.esquerdo, root);
+        }
+        else if (e > root.dado) {
+            if (root.direito != null)
+                this.remove(e, root.direito, root);
+        }
     }
 
     public boolean contains(int e) {
-        if (root == null)
+        if (empty())
             return false;
         else {
             return this.contains(e, root);
         }
     }
 
-    public boolean contains(int e, No root) {
+    private boolean contains(int e, No root) {
         if (e == root.dado) {
             return true;
         }
@@ -60,11 +80,16 @@ public class ArvoreBinariaBusca {
         return false;
     }
 
-    public void list() {
-        this.list(root);
+    public boolean empty() {
+        return root == null;
     }
 
-    public void list(No root) {
+    public void list() {
+        this.list(root);
+        System.out.println();
+    }
+
+    private void list(No root) {
         System.out.print(root.dado + " "); // PRE ORDEM
 
         if (root.esquerdo != null)

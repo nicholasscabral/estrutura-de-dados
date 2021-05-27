@@ -30,7 +30,7 @@ public class ArvoreBinariaBusca {
 
     public void remove(int e) {
         if (!this.empty())
-            remove(e, root, null);
+            this.remove(e, root, null);
     }
 
     private void remove(int e, No root, No pai) {
@@ -53,6 +53,10 @@ public class ArvoreBinariaBusca {
                 else
                     pai.direito = root.direito;
             }
+            else if (root.esquerdo != null && root.direito != null) { // tem dois filhos
+                root.dado = min(root.direito); // buscando o menor daa sub arvore direita
+                this.remove(root.dado, root.direito, root);
+            }
         }
         else if (e < root.dado) {
             if (root.esquerdo != null)
@@ -64,8 +68,15 @@ public class ArvoreBinariaBusca {
         }
     }
 
+    public int min(No root) {
+        if (root.esquerdo == null) // nao tem pra onde mais descer
+            return root.dado;
+        else
+            return min(root.esquerdo);
+    }
+
     public boolean contains(int e) {
-        if (empty())
+        if (this.empty())
             return false;
         else {
             return this.contains(e, root);

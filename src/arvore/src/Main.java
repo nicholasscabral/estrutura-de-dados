@@ -13,5 +13,8 @@ public class Main {
         tree.add(25);
 
         tree.list();
+
+        tree.remove(12);
+        tree.list();
     }
 }

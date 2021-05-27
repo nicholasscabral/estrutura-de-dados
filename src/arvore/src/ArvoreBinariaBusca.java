@@ -72,7 +72,14 @@ public class ArvoreBinariaBusca {
         if (root.esquerdo == null) // nao tem pra onde mais descer
             return root.dado;
         else
-            return min(root.esquerdo);
+            return this.min(root.esquerdo);
+    }
+
+    public int max(No root) {
+        if (root.direito == null)
+            return root.dado;
+        else
+            return this.max(root.direito);
     }
 
     public boolean contains(int e) {
@@ -126,5 +133,9 @@ public class ArvoreBinariaBusca {
 
         //System.out.print(root.dado + " "); // POS ORDEM
 
+    }
+
+    public No root() {
+        return root;
     }
 }

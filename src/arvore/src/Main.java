@@ -16,5 +16,8 @@ public class Main {
 
         tree.remove(12);
         tree.list();
+
+        System.out.println(tree.max(tree.root())); // maior valor da arvore
+        System.out.println(tree.min(tree.root())); // menor valor da arvore
     }
 }

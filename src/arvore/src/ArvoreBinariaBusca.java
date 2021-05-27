@@ -35,11 +35,23 @@ public class ArvoreBinariaBusca {
 
     private void remove(int e, No root, No pai) {
         if (e == root.dado) {
-            if (root.esquerdo == null && root.direito == null) {
-                if (root == pai.esquerdo)
+            if (root.esquerdo == null && root.direito == null) { // nao tem filho (folha)
+                if (root == pai.esquerdo) // é filho esquerdo
                     pai.esquerdo = null;
-                else
+                else // é filho direito
                     pai.direito = null;
+            }
+            else if (root.esquerdo != null && root.direito == null) { // so tem o filho esquerdo
+                if (root == pai.esquerdo)
+                    pai.esquerdo = root.esquerdo;
+                else
+                    pai.direito = root.esquerdo;
+            }
+            else if (root.esquerdo == null && root.direito != null) { // so tem o filho direito
+                if (root == pai.esquerdo)
+                    pai.esquerdo = root.direito;
+                else
+                    pai.direito = root.direito;
             }
         }
         else if (e < root.dado) {
@@ -90,12 +102,12 @@ public class ArvoreBinariaBusca {
     }
 
     private void list(No root) {
-        System.out.print(root.dado + " "); // PRE ORDEM
+        //System.out.print(root.dado + " "); // PRE ORDEM
 
         if (root.esquerdo != null)
             this.list(root.esquerdo);
 
-        //System.out.print(root.dado + " "); // ORDEM
+        System.out.print(root.dado + " "); // ORDEM
 
         if (root.direito != null) {
             this.list(root.direito);
